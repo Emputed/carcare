@@ -1,14 +1,44 @@
 <template>
     <span>{{ marca }}</span>
-
-    <select v-model="marca" class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected >Elige la marca</option>
-        <option v-for="auto in autos" >{{ auto.text }}</option>
+    <span>{{ modelo }}</span>
+    <span>{{ ano }}</span>
+   
+    <select @click="getCarro" v-model="marca" class="form-select form-select-sm" aria-label=".form-select-sm example"
+        placeholder="Marca">
+        <option selected>Elige la marca</option>
+        <option v-for="auto in autos">{{ auto.text }}</option>
     </select>
 
-    <select v-model="ano" class="form-select form-select-sm" aria-label=".form-select-sm example">
-        <option selected >Elige el Year</option>
-        <option v-for="year in years" >{{ year.text }}</option>
+    <!-- Si la data MARCA es diferente de NULL -->
+    <select v-if="marca == ''" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Elige el Year</option>
+    </select>
+    <!-- ELSE -->
+    <select v-else @click="getYear" v-model="ano" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Elige el Year</option>
+        <option v-for="year in years">{{ year.text }}</option>
+    </select>
+
+    <!-- Si la data MARCA y ANO es diferente de NULL -->
+    <select v-if="marca == '' || ano == ''" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Elige el modelo</option>
+    </select>
+    <!-- ELSE -->
+    <select v-else @click="getModel" v-model="modelo" class="form-select form-select-sm"
+        aria-label=".form-select-sm example">
+        <option selected>Elige el modelo</option>
+        <option v-for="model in models">{{ model.text }}</option>
+    </select>
+
+    <!-- Si la data MARCA, ANO y MODELO es diferente de NULL -->
+    <select v-if="marca == '' || ano == '' || modelo == ''" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        <option selected>Elige la variante</option>
+    </select>
+    <!-- ELSE -->
+    <select v-else @click="getVariants" v-model="variante" class="form-select form-select-sm"
+        aria-label=".form-select-sm example">
+        <option selected>Elige la variante</option>
+        <option v-for="variant in variants">{{ variant.text }}</option>
     </select>
 </template>
     
@@ -21,19 +51,34 @@ export default {
         return {
             autos: [],
             marca: '',
-            years: []
+            years: [],
+            ano: '',
+            models: [],
+            modelo: '',
+            variants: [],
+            variante: ''
         }
     },
     methods: {
         async getCarro() {
             const carro = await axios.get('http://core-axa-dev.eba-vu2huqdp.us-east-1.elasticbeanstalk.com/v1/axa-car/brands')
             this.autos = carro.data
-            console.log(this.autos)
+
         },
-        async getYear(){
+        async getYear() {
             const res = await axios.get(`http://core-axa-dev.eba-vu2huqdp.us-east-1.elasticbeanstalk.com/v1/axa-car/years?brand=${this.marca}`)
-            this.year = res.data
-            console.log(this.year)
+            this.years = res.data
+
+        },
+        async getModel() {
+            const mod = await axios.get(`http://core-axa-dev.eba-vu2huqdp.us-east-1.elasticbeanstalk.com/v1/axa-car/models?brand=${this.marca}&year=${this.ano}`)
+            this.models = mod.data
+
+        },
+        async getVariants() {
+            const vari = await axios.get(`http://core-axa-dev.eba-vu2huqdp.us-east-1.elasticbeanstalk.com/v1/axa-car/variants?brand=${this.marca}&model=${this.modelo}&year=${this.ano}`)
+            this.variants = vari.data
+            console.log(this.variants)
         }
     },
 
