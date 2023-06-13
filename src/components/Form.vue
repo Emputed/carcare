@@ -40,6 +40,8 @@
         <option selected>Elige la variante</option>
         <option v-for="variant in variants">{{ variant.text }}</option>
     </select>
+
+    <button type="button" class="btn btn-danger"><router-link to="/CotizacionView">Formulario</router-link></button>
 </template>
     
 <script>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FormView from '../views/FormView.vue'
+import CotiView from '../views/CotiView.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/Form',
     name: 'FormView',
     component: FormView
+  },
+  {
+    path: '/Cotizacion',
+    name: 'CotiView',
+    component: CotiView
   }
 ]
 
