@@ -7,6 +7,7 @@ export default{
     name:'Coti',
     methods:{
         
-    }
+    },
+    
 }
 </script>
