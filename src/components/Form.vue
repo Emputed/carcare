@@ -1,17 +1,14 @@
 <template>
   <form @submit="submitForm">
     <div>
-      <span>{{ marca }}</span>
-      <span>{{ modelo }}</span>
-      <span>{{ anio }}</span>
-
+        <h2>Seleccione los datos correspondientes</h2>
       <select
         @click="getCarro"
         v-model="marca"
         class="form-select form-select-lg mb-3"
         aria-label=".form-select-lg example"
       >
-        <option selected>Elige la marca</option>
+        <option selected>Eliga la marca</option>
         <option v-for="auto in autos">{{ auto.text }}</option>
       </select>
 
@@ -21,7 +18,7 @@
         class="form-select form-select-lg mb-3"
         aria-label=".form-select-lg example"
       >
-        <option selected>Elige el Year</option>
+        <option selected>Elige el año</option>
       </select>
       <!-- ELSE -->
       <select
@@ -31,7 +28,7 @@
         class="form-select form-select-lg mb-3"
         aria-label=".form-select-lg example"
       >
-        <option selected>Elige el Year</option>
+        <option selected>Elige el año</option>
         <option v-for="year in years">{{ year.text }}</option>
       </select>
 
@@ -75,7 +72,7 @@
         <option v-for="variant in variants">{{ variant.text }}</option>
       </select>
 
-      <button type="submit" class="btn btn-danger">Formulario</button>
+      <button type="submit" class="btn btn-info">Formulario</button>
     </div>
   </form>
 </template>

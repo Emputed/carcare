@@ -1,12 +1,14 @@
 <template>
-    
-    <div class="container text-center">
-        <div class="row align-items-center">
-            <div class="col">
-                One of three columns
-            </div>
-            <div class="col">
-                <Form></Form>
+    <div>
+        <NavBar></NavBar>
+        <div class="container text-center">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="../assets/car2.jpg" class="img-fluid" alt="...">
+                </div>
+                <div class="col">
+                    <Form></Form>
+                </div>
             </div>
         </div>
     </div>
@@ -15,15 +17,13 @@
 <script>
 
 import Form from '@/components/Form.vue';
+import NavBar from '@/components/NavBar.vue';
+
 export default {
     name: 'FormView',
     components: {
-        Form
-    },
-    data() {
-        return {
-
-        }
+        Form,
+        NavBar
     },
 
 }
