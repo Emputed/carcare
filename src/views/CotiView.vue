@@ -1,4 +1,6 @@
-<template></template>
+<template>
+    <Coti/>
+</template>
 
 <script>
 import Coti from '@/components/Coti.vue';

@@ -16,7 +16,7 @@ const routes = [
   },
   {
     path: '/Cotizacion',
-    name: 'CotiView',
+    name: 'Cotizacion',
     component: CotiView
   }
 ]

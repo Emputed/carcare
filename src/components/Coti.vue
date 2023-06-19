@@ -1,13 +1,16 @@
 <template>
-
+  <p>{{ year }}</p>
 </template>
 
 <script>
-export default{
-    name:'Coti',
-    methods:{
-        
-    },
-    
-}
+import { mapGetters } from "vuex";
+export default {
+  name: "Coti",
+  computed: {
+    ...mapGetters({
+      year: "getYear",
+    }),
+  },
+  methods: {},
+};
 </script>
