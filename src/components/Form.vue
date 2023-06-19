@@ -1,5 +1,5 @@
 <template>
-    <div class="card w-50 container-fluid">
+    <div>
         <span>{{ marca }}</span>
         <span>{{ modelo }}</span>
         <span>{{ ano }}</span>

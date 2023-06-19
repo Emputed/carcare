@@ -76,7 +76,7 @@
 
       </div>
     </div>
-
+    <RouterLink to="/Form">Cotiza ahora</RouterLink>
   </div>
 </template>
 
