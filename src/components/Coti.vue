@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <p>{{ year }}</p>
+    <h3>AQUI TIENE SU COTIZACIÓN</h3>
     <table class="table">
       <thead>
         <tr>
@@ -106,10 +106,12 @@
     <table class="table">
       <tr>
         <th scope="row">Costo</th>
-        <td>{{ this.costoEstadar }}</td>
-        <td>{{ this.costoPremium }}</td>
+        <td><h4> $ {{ this.costoEstadar }}</h4></td>
+        <td><h4>$ {{ this.costoPremium }}</h4></td>
       </tr>
     </table>
+<h4>Nota: El costo mostrado es anual</h4>
+
   </div>
 </template>
 
@@ -144,9 +146,9 @@ export default {
     ) {
       this.multiplo = this.precioDef * 0.6;
       this.costoPremium = this.precioDef + this.multiplo;
-      this.costoEstadar = this.precioDef + this.precioDef * 0.3;
+      this.costoEstadar = this.precioDef + this.precioDef * 0.4;
     }
-    /*else  if (this.year === "2016" || "2015" || "2014" || "2013" || "2012") {
+    else  if (this.year === "2016" || "2015" || "2014" || "2013" || "2012") {
       this.multiplo = this.precioDef * 0.5
       this.costoPremium = this.precioDef + this.multiplo
       this.costoEstadar = this.precioDef + (this.precioDef * .3)
@@ -154,7 +156,7 @@ export default {
     else  if (this.year === "2011" || "2010" || "2009" || "2008" || "2007") {
       this.multiplo = this.precioDef * 0.4
       this.costoPremium = this.precioDef + this.multiplo
-      this.costoEstadar = this.precioDef + (this.precioDef * .2)
+      this.costoEstadar = this.precioDef + (this.precioDef * .3)
     }
     else  if (this.year === "2006" || "2005" || "2004" || "2003" || "2002" || "2001") {
       this.multiplo = this.precioDef * 0.3
@@ -169,13 +171,23 @@ export default {
     else  if (this.year === "1993" || "1992" || "1991" || "1990" || "1989" || "1988" || "1987" || "1986" || "1985") {
       this.multiplo = this.precioDef * 0.2
       this.costoPremium = this.precioDef + this.multiplo
-      this.costoEstadar = this.precioDef + (this.precioDef * .1)
+      this.costoEstadar = this.precioDef + (this.precioDef * .2)
     }
     else  if (this.year === "1984" || "1983" || "1982" || "1981" || "1980" || "1979" || "1978" || "1977" || "1976" || "1975") {
       this.multiplo = this.precioDef * 0.2
       this.costoPremium = this.precioDef + this.multiplo
       this.costoEstadar = this.precioDef + (this.precioDef * .1)
-    }*/
+    }
+    else  if (this.year === "1974" || "1973" || "1972" || "1971" || "1970" || "1979" || "1968" || "1967" || "1966" || "1965") {
+      this.multiplo = this.precioDef * 0.1
+      this.costoPremium = this.precioDef + this.multiplo
+      this.costoEstadar = this.precioDef + (this.precioDef * .1)
+    }
+    else  if (this.year === "1964" || "1963" || "1962" || "1961" || "1960") {
+      this.multiplo = this.precioDef * 0.1
+      this.costoPremium = this.precioDef - this.multiplo
+      this.costoEstadar = this.precioDef - (this.precioDef * .1)
+    }
   },
 };
 </script>

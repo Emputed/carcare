@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar bg-body-tertiary vh-10">
+    <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="@/assets/logo.svg" alt="Logo" width="30" height="24"
