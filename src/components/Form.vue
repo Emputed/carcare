@@ -1,5 +1,5 @@
 <template>
-  <form @submit="submitForm">
+  <form @submit.prevent="submitForm">
     <div>
         <h2>Seleccione los datos correspondientes</h2>
       <select
@@ -129,8 +129,8 @@ export default {
       this.variants = vari.data;
       console.log(this.variants);
     },
-    submitForm() {
-      this.modifyYear(this.anio);
+    async submitForm() {
+      await this.modifyYear(this.anio);
       this.$router.push({ name: "Cotizacion" });
     },
   },

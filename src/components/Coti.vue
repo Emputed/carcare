@@ -12,33 +12,93 @@
       <tbody>
         <tr>
           <th scope="row">Robo Total</th>
-          <td> <img src="../assets/tache.png" height="15%" width="15%"> </td>
-          <td> <img src="../assets/Light_green_check.png" height="10%" width="10%"> </td>
+          <td><img src="../assets/tache.png" height="15%" width="15%" /></td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
         </tr>
         <tr>
           <th scope="row">Responsabilidad civil por daños a 3ros</th>
-          <td><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
-          <td><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
         </tr>
         <tr>
           <th scope="row">Daños materiales</th>
-          <td><img src="../assets/tache.png" height="15%" width="15%"></td>
-          <td colspan="2"><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
+          <td><img src="../assets/tache.png" height="15%" width="15%" /></td>
+          <td colspan="2">
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
         </tr>
         <tr>
           <th scope="row">Servicio de Asistencia</th>
-          <td><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
-          <td colspan="2"><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
+          <td colspan="2">
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
         </tr>
         <tr>
           <th scope="row">Defensa legal</th>
-          <td><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
-          <td><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
         </tr>
         <tr>
           <th scope="row">Gastos médicos</th>
-          <td><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
-          <td><img src="../assets/Light_green_check.png" height="10%" width="10%"></td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
+          <td>
+            <img
+              src="../assets/Light_green_check.png"
+              height="10%"
+              width="10%"
+            />
+          </td>
         </tr>
       </tbody>
     </table>
@@ -46,8 +106,8 @@
     <table class="table">
       <tr>
         <th scope="row">Costo</th>
-        <td> {{ this.costoEstadar }} </td>
-        <td>{{ this.costoPremium }} </td>
+        <td>{{ this.costoEstadar }}</td>
+        <td>{{ this.costoPremium }}</td>
       </tr>
     </table>
   </div>
@@ -62,7 +122,7 @@ export default {
       costoEstadar: 1,
       costoPremium: 1,
       precioDef: 18000,
-      multiplo: 1
+      multiplo: 1,
     };
   },
   computed: {
@@ -72,15 +132,19 @@ export default {
   },
 
   mounted() {
-    if (this.year === "2023" || "2022" || "2021" ) {
-      this.multiplo = this.precioDef * 0.7
-      this.costoPremium = this.precioDef + this.multiplo
-      this.costoEstadar = this.precioDef + (this.precioDef * .3)
-    }
-    else  if (this.year === "2020" || "2019" || "2018" || "2017") {
-      this.multiplo = this.precioDef * 0.6
-      this.costoPremium = this.precioDef + this.multiplo
-      this.costoEstadar = this.precioDef + (this.precioDef * .3)
+    if (this.year === "2023" || this.year === "2022" || this.year === "2021") {
+      this.multiplo = this.precioDef * 0.7;
+      this.costoPremium = this.precioDef + this.multiplo;
+      this.costoEstadar = this.precioDef + this.precioDef * 0.3;
+    } else if (
+      this.year === "2020" ||
+      this.year === "2019" ||
+      this.year === "2018" ||
+      this.year === "2017"
+    ) {
+      this.multiplo = this.precioDef * 0.6;
+      this.costoPremium = this.precioDef + this.multiplo;
+      this.costoEstadar = this.precioDef + this.precioDef * 0.3;
     }
     /*else  if (this.year === "2016" || "2015" || "2014" || "2013" || "2012") {
       this.multiplo = this.precioDef * 0.5
@@ -112,7 +176,6 @@ export default {
       this.costoPremium = this.precioDef + this.multiplo
       this.costoEstadar = this.precioDef + (this.precioDef * .1)
     }*/
-
   },
 };
 </script>
